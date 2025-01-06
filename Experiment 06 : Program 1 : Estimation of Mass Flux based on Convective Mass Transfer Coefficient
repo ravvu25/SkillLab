@@ -1,8 +1,0 @@
-# Define the variables
-C1 = 0.1 # Concentration of pollutant in gas (mol/m^3)
-C2 = 0.0 # Concentration of pollutant in water (mol/m^3, negligible)
-k = 0.05 # Mass transfer coefficient (m/s)
-# Calculate mass flux using the formula J = k * (C1 - C2)
-mass_flux = k * (C1 - C2)
-# Output the result
-print(f"The mass flux of the pollutant from the gas to the water surface is {mass_flux:.3f} mol/m2·s")
