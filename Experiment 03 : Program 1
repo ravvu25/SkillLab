@@ -1,0 +1,28 @@
+def bernoulli_equation(v1, p1, z1, v2, p2, z2, rho, g=9.81):
+    """
+    Calculates pressure difference based on the Bernoulli equation for steady, inviscid, incompressible flow.
+    Args:
+        v1: Velocity at point 1 (m/s)
+        p1: Pressure at point 1 (Pa)
+        z1: Elevation at point 1 (m)
+        v2: Velocity at point 2 (m/s)
+        p2: Pressure at point 2 (Pa) (unknown, to be solved for)
+        z2: Elevation at point 2 (m)
+        rho: Fluid density (kg/m^3)
+        g: Acceleration due to gravity (m/s^2)
+    Returns:
+        Pressure difference (p1 - p2) in Pa
+    """
+    pressure_diff = (0.5 * rho * v1**2 + rho * g * z1 + p1) - (0.5 * rho * v2**2 + rho * g * z2 + p2)
+    return pressure_diff
+
+# Example usage
+v1 = 5 # m/s (velocity at point 1)
+p1 = 100000 # Pa (pressure at point 1)
+z1 = 2 # m (elevation at point 1)
+v2 = 10 # m/s (velocity at point 2)
+p2 = 0 # Pa (pressure at point 2, initial guess for calculation)
+z2 = 1 # m (elevation at point 2)
+rho = 1000 # kg/m^3 (fluid density)
+pressure_diff = bernoulli_equation(v1, p1, z1, v2, p2, z2, rho)
+print("Pressure difference:", pressure_diff, "Pa")
