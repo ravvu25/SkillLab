@@ -16,7 +16,6 @@ def bernoulli_equation(v1, p1, z1, v2, p2, z2, rho, g=9.81):
     pressure_diff = (0.5 * rho * v1**2 + rho * g * z1 + p1) - (0.5 * rho * v2**2 + rho * g * z2 + p2)
     return pressure_diff
 
-# Example usage
 v1 = 5 # m/s (velocity at point 1)
 p1 = 100000 # Pa (pressure at point 1)
 z1 = 2 # m (elevation at point 1)
