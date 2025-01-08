@@ -1,7 +1,6 @@
 import numpy as np
 from matplotlib import pyplot as plt
 
-# Parameters
 length = 2
 k = 0.466
 temp_left = 200
@@ -10,26 +9,22 @@ total_time = 4
 dx = 0.1
 dt = 0.0001
 
-# Create grid
 x_vec = np.linspace(0, length, int(length/dx))
 t_vec = np.linspace(0, total_time, int(total_time/dt))
 u = np.zeros([len(t_vec), len(x_vec)])
 u[:, 0] = temp_left
 u[:, -1] = temp_right
 
-# Time-stepping loop
 for t in range(1, len(t_vec)-1):
     # The following line was not indented properly
     for x in range(1, len(x_vec)-1):
         # This line needs to be indented to be part of the inner loop
         u[t+1, x] = k * (dt / dx**2) * (u[t, x+1] - 2*u[t, x] + u[t, x-1]) + u[t, x]
 
-# Plotting
 plt.plot(x_vec, u[t], 'black')
 plt.pause(0.001)
 plt.cla()
 
-# Final plot
 plt.plot(x_vec, u[0])
 plt.ylabel("Temperature (C)")
 plt.xlabel("Distance Along Rod (m)")
